@@ -1,0 +1,32 @@
+{
+  "name": "sketchtool-cli",
+  "version": "1.0.0",
+  "description": "CLI wrapped around Sketch.app's sketchtool binary",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianburr/sketchtool-cli.git"
+  },
+  "keywords": [
+    "sketchtool",
+    "sketchtool-cli",
+    "sketch"
+  ],
+  "author": "Julian Burr <hello@julianburr.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/julianburr/sketchtool-cli/issues"
+  },
+  "homepage": "https://github.com/julianburr/sketchtool-cli#readme",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "fs-extra": "^4.0.1",
+    "invariant": "^2.2.2"
+  },
+  "devDependencies": {
+    "jest": "^20.0.4"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "sketchtool-cli",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "CLI wrapped around Sketch.app's sketchtool binary",
   "main": "index.js",
   "scripts": {

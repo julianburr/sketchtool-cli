@@ -2,13 +2,14 @@ const fs = require('fs-extra');
 const execSync = require('child_process').execSync;
 const invariant = require('invariant');
 
-const BINARY_PATH = '/Applications/Sketch.app/Contents/Resources/sketchtool/bin/sketchtool';
+const BINARY_PATH =
+  '/Applications/Sketch.app/Contents/Resources/sketchtool/bin/sketchtool';
 
 const ALLOWED_LIST_TYPES = [
-  'artboards', 
-  'formats', 
-  'layers', 
-  'pages', 
+  'artboards',
+  'formats',
+  'layers',
+  'pages',
   'slices'
 ];
 
@@ -77,7 +78,7 @@ function pluginFolder () {
  * @param  {Object} options
  */
 function runPluginWithIdentifier (pluginName, identifier, options = {}) {
-  const pluginFolderPath = pluginFolder();
+  const pluginFolderPath = options.dir || pluginFolder();
 
   // Append `.sketchplugin` if not passed in with the plugin name
   if (!pluginName.endsWith('.sketchplugin')) {
@@ -87,7 +88,10 @@ function runPluginWithIdentifier (pluginName, identifier, options = {}) {
 
   // Check if the plugin actually exists before running anything!
   const exists = fs.existsSync(pluginPath);
-  invariant(exists, `Plugin '${pluginPath}' not found! Cannot run plugin command!`);
+  invariant(
+    exists,
+    `Plugin '${pluginPath}' not found! Cannot run plugin command!`
+  );
 
   let args = '';
 
@@ -114,7 +118,10 @@ function dump (filePath) {
  * @return {Object}
  */
 function list (type, filePath) {
-  invariant(ALLOWED_LIST_TYPES.includes(type), `Type '${type}' is not supported by sketchtool`)
+  invariant(
+    ALLOWED_LIST_TYPES.includes(type),
+    `Type '${type}' is not supported by sketchtool`
+  );
   return JSON.parse(sketchtoolExec(`list ${type} ${escape(filePath)}`));
 }
 

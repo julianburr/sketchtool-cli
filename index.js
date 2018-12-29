@@ -19,7 +19,11 @@ const ALLOWED_LIST_TYPES = [
  * @return {string}
  */
 function escape (string) {
-  return string.replace(/ /g, '\\ ').replace(/\n/g, '');
+  return string
+    .replace(/ /g, '\\ ')
+    .replace(/\n/g, '')
+    .replace(/\(/g, '\\(')
+    .replace(/\)/g, '\\)');
 }
 
 /**
